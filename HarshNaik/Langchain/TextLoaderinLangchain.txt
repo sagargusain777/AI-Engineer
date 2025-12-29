@@ -1,0 +1,23 @@
+Data Ingestion in AI
+
+Data ingestion in AI is the process of collecting, reading, and preparing external data so that an artificial intelligence system can understand and use it for reasoning and answering questions. Large language models are trained on general public data, but they do not have access to private, domain-specific, or up-to-date information. Data ingestion solves this limitation by bringing custom data such as text files, PDFs, websites, or databases into the AI system. This step is essential in Retrieval-Augmented Generation (RAG), where the model retrieves relevant information from ingested data before generating a response.
+
+Data Ingestion in LangChain
+
+In LangChain, data ingestion is managed through components called document loaders. A document loader reads raw data from different sources and converts it into a standardized format known as a Document. Each Document contains the actual text in a field called page_content and additional information in metadata, such as the source file name or location. This standardization allows LangChain to process data from many different formats in a consistent way throughout the AI pipeline.
+
+What Is a Document Loader?
+
+A document loader is a bridge between raw data and the AI system. Its main role is to extract text from various data sources and structure it so that it can be further processed. Whether the data comes from a text file, a PDF, or a web page, the document loader ensures that the output follows the same Document structure. This makes it easier to apply text splitting, embedding, and retrieval steps later in the pipeline.
+
+TextLoader in LangChain
+
+The TextLoader is a specific document loader in LangChain that is used for ingesting plain text files with a .txt extension. It is commonly applied to notes, documentation, logs, and other unstructured text data. When a text file is loaded using TextLoader, the content of the file becomes the page_content of a Document, while details such as the file path are stored in metadata. This conversion makes raw text usable by AI models in a structured and consistent form.
+
+Text Splitting After Loading
+
+After the text is loaded using TextLoader, it is usually split into smaller chunks. Text splitting is important because large documents can exceed the context limits of language models and reduce retrieval accuracy. By dividing the text into smaller, overlapping sections, the AI system can more precisely match user queries with the most relevant parts of the data. These chunks are later converted into embeddings and stored in a vector database for efficient retrieval.
+
+Summary
+
+In summary, data ingestion in AI is the process of feeding external knowledge into an AI system so it can generate accurate and context-aware responses. LangChain simplifies this process through document loaders, which convert raw data into structured Document objects. The TextLoader is specifically designed for plain text files and plays a key role in transforming unstructured text into a format suitable for splitting, embedding, and retrieval. This ingestion pipeline enables AI applications to work effectively with custom and private data instead of relying only on pre-trained knowledge.
